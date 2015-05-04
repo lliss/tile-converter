@@ -1,0 +1,27 @@
+---
+- name: Download Node.js
+  get_url: >
+    url=http://nodejs.org/dist/v{{ nodejs_version }}/node-v{{ nodejs_version }}-{{ nodejs_os }}-{{ nodejs_arch }}.tar.gz
+    dest=/usr/local/src/node-v{{ nodejs_version }}-{{ nodejs_os }}-{{ nodejs_arch }}.tar.gz
+
+- name: Extract and install Node.js
+  unarchive: src=/usr/local/src/node-v{{ nodejs_version }}-{{ nodejs_os }}-{{ nodejs_arch }}.tar.gz
+             dest=/usr/local
+             copy=no
+
+- name: Symlink Node.js into /usr/local/bin
+  file: >
+    src=/usr/local/node-v{{ nodejs_version }}-{{ nodejs_os }}-{{ nodejs_arch }}/bin/{{ item }}
+    dest=/usr/local/bin/{{ item }}
+    state=link
+  with_items:
+    - node
+    - npm
+
+- name: Determine what version of NPM is installed
+  command: npm --version
+  register: installed_npm_version
+
+- name: Upgrade NPM
+  command: "/usr/local/node-v{{ nodejs_version }}-{{ nodejs_os }}-{{ nodejs_arch }}/bin/npm install --global --force npm@{{ nodejs_npm_version }}"
+  when: installed_npm_version.stdout != nodejs_npm_version

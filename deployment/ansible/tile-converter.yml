@@ -1,0 +1,24 @@
+---
+- hosts: all
+  sudo: True
+
+  pre_tasks:
+    - name: Update APT cache
+      apt: update_cache=yes cache_valid_time=3600
+
+  roles:
+    - { role: "azavea.build-essential" }
+    - { role: "nodejs" }
+
+  tasks:
+    - name: Install Git
+      apt: pkg=git state=present
+
+    - name: Update bashrc adding font path export
+      shell: echo "export MAPNIK_FONT_PATH=/vagrant/fonts" >> /home/vagrant/.bashrc
+
+    - name: Update bashrc adding mapbox token
+      shell: echo "export MAPBOX_ACCESS_TOKEN={{ mapbox_access_token }}" >> /home/vagrant/.bashrc
+
+    - name: Install node modules
+      shell: npm install -g tessera mbtiles tl tilelive mbtiles mongotiles tilelive-blend tilelive-bridge tilelive-carto tilelive-csvin tilelive-fieldpapers tilelive-file tilelive-http tilelive-mapbox tilelive-mapnik tilelive-merge tilelive-null tilelive-overlay tilelive-raster tilelive-s3 tilelive-solid tilelive-tmsource tilelive-tmstyle tilelive-utfgrid tilelive-vector@^0.13.0 tilelive-xray tilejson

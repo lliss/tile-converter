@@ -1,0 +1,2 @@
+azavea.build-essential,0.1.0
+azavea.nodejs,0.3.0
