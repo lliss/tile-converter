@@ -2,4 +2,3 @@
 nodejs_version: "0.10.38"
 nodejs_os: linux
 nodejs_arch: x64
-nodejs_npm_version: 1.4.28
