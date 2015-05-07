@@ -20,4 +20,4 @@
       shell: echo "export MAPBOX_ACCESS_TOKEN={{ mapbox_access_token }}" >> /home/vagrant/.bashrc
 
     - name: Install node modules
-      shell: npm install -g tessera mbtiles tl tilelive tilelive-blend tilelive-bridge tilelive-carto tilelive-csvin tilelive-fieldpapers tilelive-file tilelive-http tilelive-mapbox tilelive-mapnik tilelive-merge tilelive-overlay tilelive-s3 tilelive-solid tilelive-tmsource tilelive-tmstyle tilelive-utfgrid tilelive-vector@^0.13.0 tilelive-xray tilejson
+      shell: npm install -g tessera tl mbtiles mapnik  tilelive tilelive-file tilelive-http tilelive-mapbox tilelive-mapnik tilelive-s3 tilelive-tmsource tilelive-tmstyle tilelive-utfgrid tilelive-vector@^0.13.0 tilejson
