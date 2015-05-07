@@ -7,7 +7,6 @@
       apt: update_cache=yes cache_valid_time=3600
 
   roles:
-    - { role: "azavea.build-essential" }
     - { role: "nodejs" }
 
   tasks:
@@ -21,4 +20,4 @@
       shell: echo "export MAPBOX_ACCESS_TOKEN={{ mapbox_access_token }}" >> /home/vagrant/.bashrc
 
     - name: Install node modules
-      shell: npm install -g tessera mbtiles tl tilelive tilelive-blend tilelive-bridge tilelive-carto tilelive-csvin tilelive-fieldpapers tilelive-file tilelive-http tilelive-mapbox tilelive-mapnik tilelive-merge tilelive-null tilelive-overlay tilelive-raster tilelive-s3 tilelive-solid tilelive-tmsource tilelive-tmstyle tilelive-utfgrid tilelive-vector@^0.13.0 tilelive-xray tilejson
+      shell: npm install -g tessera mbtiles tl tilelive tilelive-blend tilelive-bridge tilelive-carto tilelive-csvin tilelive-fieldpapers tilelive-file tilelive-http tilelive-mapbox tilelive-mapnik tilelive-merge tilelive-overlay tilelive-s3 tilelive-solid tilelive-tmsource tilelive-tmstyle tilelive-utfgrid tilelive-vector@^0.13.0 tilelive-xray tilejson

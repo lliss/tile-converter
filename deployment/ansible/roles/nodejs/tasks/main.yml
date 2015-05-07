@@ -1,4 +1,8 @@
 ---
+
+- name: Install build-essential
+  apt: pkg=build-essential state=present
+
 - name: Download Node.js
   get_url: >
     url=http://nodejs.org/dist/v{{ nodejs_version }}/node-v{{ nodejs_version }}-{{ nodejs_os }}-{{ nodejs_arch }}.tar.gz
