@@ -1,0 +1,23 @@
+{
+  "name": "lib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "dependencies": {
+    "mapnik": "3.2.0",
+    "mbtiles": "0.8.0",
+    "tessera": "0.5.3",
+    "tilejson": "0.12.0",
+    "tilelive": "5.7.1",
+    "tilelive-mapbox": "0.4.0",
+    "tilelive-tmstyle": "0.4.0",
+    "tilelive-vector": "3.2.5",
+    "tl": "0.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

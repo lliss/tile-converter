@@ -21,3 +21,15 @@
 
     - name: Install node modules
       shell: npm install -g tessera tl mbtiles mapnik  tilelive tilelive-file tilelive-http tilelive-mapbox tilelive-mapnik tilelive-s3 tilelive-tmsource tilelive-tmstyle tilelive-utfgrid tilelive-vector tilejson
+
+    - name: Copy package.json
+      copy: src=files/package.json dest=/usr/local/lib/package.json owner=root group=root mode=0644
+
+    - name: Copy shrinkwrap file.
+      copy: src=files/npm-shrinkwrap.json dest=/usr/local/lib/npm-shrinkwrap.json owner=root group=root mode=0644
+
+    - name: Fix modules.
+      shell: cd /usr/local/lib && sudo npm install
+
+    - name: Add patched file.
+      copy: src=files/index.js dest=/usr/local/lib/node_modules/tl/node_modules/tilelive-streaming/index.js
